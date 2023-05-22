@@ -21,11 +21,10 @@ export function pubKeyHash(pubkey: Uint8Array): Uint8Array;
 */
 export function private_key_to_pubkey_hash(private_key: Uint8Array): Uint8Array;
 /**
-* @param {BigInt} a
-* @param {BigInt} b
+* @param {string} jsonBytes
 * @returns {BigInt}
 */
-export function a_add_b(a: BigInt, b: BigInt): BigInt;
+export function printA(jsonBytes: string): BigInt;
 /**
 * @param {Uint8Array} private_key
 * @returns {Uint8Array}
