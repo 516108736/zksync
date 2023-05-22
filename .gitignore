@@ -16,7 +16,6 @@ tags
 *.orig
 
 zksync_pk.key
-dist
 todo
 
 Cargo.lock

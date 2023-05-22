@@ -5,7 +5,7 @@ set -e
 # Build binaryen executables.
 
 # path to binaryen
-BINARYEN=$ZKSYNC_HOME/sdk/binaryen
+BINARYEN=../../sdk/binaryen
 # number of workers for make -j
 CORES=$(grep -c ^processor /proc/cpuinfo 2> /dev/null || sysctl -n hw.ncpu 2> /dev/null || psrinfo -p)
 # flags for cmake
