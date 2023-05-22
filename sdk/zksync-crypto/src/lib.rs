@@ -90,6 +90,7 @@ fn privkey_to_pubkey_internal(private_key: &[u8]) -> Result<PublicKey<Engine>, J
 
     let sk = read_signing_key(private_key)?;
 
+
     Ok(JUBJUB_PARAMS.with(|params| PublicKey::from_private(&sk, p_g, params)))
 }
 
@@ -118,12 +119,18 @@ pub fn private_key_to_pubkey(private_key: &[u8]) -> Result<Vec<u8>, JsValue> {
     let mut pubkey_buf = Vec::with_capacity(PACKED_POINT_SIZE);
 
     let pubkey = privkey_to_pubkey_internal(private_key)?;
-
     pubkey
         .write(&mut pubkey_buf)
         .expect("failed to write pubkey to buffer");
 
     Ok(pubkey_buf)
+}
+#[wasm_bindgen]
+pub fn private_key_to_pubkey_with_xy(private_key: &[u8]) ->(Vec<u8>, Vec<u8> ){
+
+    let pubkey = privkey_to_pubkey_internal(private_key)?;
+    let (a,b)=pubkey.0.into_xy();
+    return (a,b)
 }
 
 #[wasm_bindgen(js_name = "rescueHash")]
