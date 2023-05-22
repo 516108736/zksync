@@ -109,9 +109,17 @@ pub fn private_key_to_pubkey_hash(private_key: &[u8]) -> Result<Vec<u8>, JsValue
     )?))
 }
 
+#[derive(Debug, Deserialize, Serialize)]
+struct A {
+    // 定义结构体 A 的字段
+    field1: String,
+    field2: u64,
+}
+
 #[wasm_bindgen]
-pub fn a_add_b(a:u64,b:u64)->u64{
-    a+b
+pub fn printA(jsonBytes:&str)->u64{
+    let a: A = serde_json::from_str(jsonBytes).unwrap();
+    a.field2+a.field2
 }
 
 #[wasm_bindgen]
