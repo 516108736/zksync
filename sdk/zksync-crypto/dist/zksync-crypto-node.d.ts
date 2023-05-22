@@ -32,6 +32,11 @@ export function a_add_b(a: BigInt, b: BigInt): BigInt;
 */
 export function private_key_to_pubkey(private_key: Uint8Array): Uint8Array;
 /**
+* @param {Uint8Array} private_key
+* @returns {Uint8Array}
+*/
+export function private_key_to_pubkey_with_xy(private_key: Uint8Array): Uint8Array;
+/**
 * @param {Uint8Array} msg
 * @returns {Uint8Array}
 */

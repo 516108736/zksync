@@ -32,6 +32,11 @@ export function a_add_b(a: BigInt, b: BigInt): BigInt;
 */
 export function private_key_to_pubkey(private_key: Uint8Array): Uint8Array;
 /**
+* @param {Uint8Array} private_key
+* @returns {Uint8Array}
+*/
+export function private_key_to_pubkey_with_xy(private_key: Uint8Array): Uint8Array;
+/**
 * @param {Uint8Array} msg
 * @returns {Uint8Array}
 */
@@ -72,6 +77,7 @@ export interface InitOutput {
   readonly private_key_to_pubkey_hash: (a: number, b: number, c: number) => void;
   readonly a_add_b: (a: number, b: number, c: number, d: number, e: number) => void;
   readonly private_key_to_pubkey: (a: number, b: number, c: number) => void;
+  readonly private_key_to_pubkey_with_xy: (a: number, b: number, c: number) => void;
   readonly rescueHash: (a: number, b: number, c: number) => void;
   readonly rescueHashOrders: (a: number, b: number, c: number) => void;
   readonly sign_musig: (a: number, b: number, c: number, d: number, e: number) => void;

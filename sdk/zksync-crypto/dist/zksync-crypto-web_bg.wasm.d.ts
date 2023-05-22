@@ -7,6 +7,7 @@ export function pubKeyHash(a: number, b: number, c: number): void;
 export function private_key_to_pubkey_hash(a: number, b: number, c: number): void;
 export function a_add_b(a: number, b: number, c: number, d: number, e: number): void;
 export function private_key_to_pubkey(a: number, b: number, c: number): void;
+export function private_key_to_pubkey_with_xy(a: number, b: number, c: number): void;
 export function rescueHash(a: number, b: number, c: number): void;
 export function rescueHashOrders(a: number, b: number, c: number): void;
 export function sign_musig(a: number, b: number, c: number, d: number, e: number): void;

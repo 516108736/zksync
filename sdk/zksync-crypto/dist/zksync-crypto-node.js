@@ -185,6 +185,26 @@ module.exports.private_key_to_pubkey = function(private_key) {
 };
 
 /**
+* @param {Uint8Array} private_key
+* @returns {Uint8Array}
+*/
+module.exports.private_key_to_pubkey_with_xy = function(private_key) {
+    try {
+        const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
+        var ptr0 = passArray8ToWasm0(private_key, wasm.__wbindgen_malloc);
+        var len0 = WASM_VECTOR_LEN;
+        wasm.private_key_to_pubkey_with_xy(retptr, ptr0, len0);
+        var r0 = getInt32Memory0()[retptr / 4 + 0];
+        var r1 = getInt32Memory0()[retptr / 4 + 1];
+        var v1 = getArrayU8FromWasm0(r0, r1).slice();
+        wasm.__wbindgen_free(r0, r1 * 1);
+        return v1;
+    } finally {
+        wasm.__wbindgen_add_to_stack_pointer(16);
+    }
+};
+
+/**
 * @param {Uint8Array} msg
 * @returns {Uint8Array}
 */
