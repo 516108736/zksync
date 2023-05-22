@@ -134,6 +134,35 @@ export function private_key_to_pubkey_hash(private_key) {
     }
 }
 
+const u32CvtShim = new Uint32Array(2);
+
+const uint64CvtShim = new BigUint64Array(u32CvtShim.buffer);
+/**
+* @param {BigInt} a
+* @param {BigInt} b
+* @returns {BigInt}
+*/
+export function a_add_b(a, b) {
+    try {
+        const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
+        uint64CvtShim[0] = a;
+        const low0 = u32CvtShim[0];
+        const high0 = u32CvtShim[1];
+        uint64CvtShim[0] = b;
+        const low1 = u32CvtShim[0];
+        const high1 = u32CvtShim[1];
+        wasm.a_add_b(retptr, low0, high0, low1, high1);
+        var r0 = getInt32Memory0()[retptr / 4 + 0];
+        var r1 = getInt32Memory0()[retptr / 4 + 1];
+        u32CvtShim[0] = r0;
+        u32CvtShim[1] = r1;
+        const n2 = uint64CvtShim[0];
+        return n2;
+    } finally {
+        wasm.__wbindgen_add_to_stack_pointer(16);
+    }
+}
+
 /**
 * @param {Uint8Array} private_key
 * @returns {Uint8Array}

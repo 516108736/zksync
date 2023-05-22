@@ -5,6 +5,7 @@ export function zksync_crypto_init(): void;
 export function privateKeyFromSeed(a: number, b: number, c: number): void;
 export function pubKeyHash(a: number, b: number, c: number): void;
 export function private_key_to_pubkey_hash(a: number, b: number, c: number): void;
+export function a_add_b(a: number, b: number, c: number, d: number, e: number): void;
 export function private_key_to_pubkey(a: number, b: number, c: number): void;
 export function rescueHash(a: number, b: number, c: number): void;
 export function rescueHashOrders(a: number, b: number, c: number): void;
