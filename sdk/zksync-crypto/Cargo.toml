@@ -23,6 +23,7 @@ franklin_crypto = { package = "franklin-crypto", git = "https://github.com/matte
 rand = "0.4"
 
 serde = { version = "1.0.152", features = ["derive"] }
+serde_json = { version = "1.0.93" }
 
 wasm-bindgen = "=0.2.74"
 hex = "0.4"
