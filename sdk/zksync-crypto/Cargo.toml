@@ -22,6 +22,8 @@ default = ["console_error_panic_hook"]
 franklin_crypto = { package = "franklin-crypto", git = "https://github.com/matter-labs/franklin-crypto.git", branch="beta"}
 rand = "0.4"
 
+serde = { version = "1.0.152", features = ["derive"] }
+
 wasm-bindgen = "=0.2.74"
 hex = "0.4"
 sha2 = "0.8"
