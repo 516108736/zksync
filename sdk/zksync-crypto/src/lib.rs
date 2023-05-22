@@ -109,6 +109,11 @@ pub fn private_key_to_pubkey_hash(private_key: &[u8]) -> Result<Vec<u8>, JsValue
 }
 
 #[wasm_bindgen]
+pub fn a_add_b(a:u64,b:u64)->u64{
+    a+b
+}
+
+#[wasm_bindgen]
 pub fn private_key_to_pubkey(private_key: &[u8]) -> Result<Vec<u8>, JsValue> {
     let mut pubkey_buf = Vec::with_capacity(PACKED_POINT_SIZE);
 
