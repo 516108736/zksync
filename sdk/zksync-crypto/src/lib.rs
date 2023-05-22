@@ -10,6 +10,7 @@ const PACKED_SIGNATURE_SIZE: usize = 64;
 
 pub use franklin_crypto::bellman::pairing::bn256::{Bn256 as Engine, Fr};
 use franklin_crypto::rescue::bn256::Bn256RescueParams;
+use serde::{Deserialize, Serialize};
 
 pub type Fs = <Engine as JubjubEngine>::Fs;
 
