@@ -130,8 +130,8 @@ pub fn private_key_to_pubkey_with_xy(private_key: &[u8]) ->Result<Vec<u8>, JsVal
     let mut pubkey_buf = Vec::with_capacity(PACKED_POINT_SIZE+PACKED_POINT_SIZE);
     let pubkey = privkey_to_pubkey_internal(private_key)?;
     let (a,b)=pubkey.0.into_xy();
-    a.into_repr().write(&mut pubkey_buf).expect("failed to write a to buffer");
-    b.into_repr().write(&mut pubkey_buf).expect("failed to write b to buffer");
+    a.into_repr().write_be(&mut pubkey_buf).expect("failed to write a to buffer");
+    b.into_repr().write_be(&mut pubkey_buf).expect("failed to write b to buffer");
     Ok(pubkey_buf)
 }
 
